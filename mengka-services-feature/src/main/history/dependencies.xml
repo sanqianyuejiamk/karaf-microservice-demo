@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="mengka-services-feature-1.0.0-SNAPSHOT">
+    <feature>
+        <feature>cxf-jaxrs</feature>
+        <feature>scr</feature>
+        <bundle>mvn:com.mengka.microservices.karaf/mengka-services-api/1.0.0-SNAPSHOT</bundle>
+        <bundle>mvn:com.mengka.microservices.karaf/mengka-services-impl/1.0.0-SNAPSHOT</bundle>
+    </feature>
+</features>
