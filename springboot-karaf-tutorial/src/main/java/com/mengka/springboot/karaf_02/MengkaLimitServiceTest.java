@@ -1,7 +1,9 @@
-package com.mengka.springboot.karaf_01;
+package com.mengka.springboot.karaf_02;
 
-import de.nierbeck.microservices.karaf.calculator.CreditCalculator;
-import de.nierbeck.microservices.karaf.calculator.values.Credit;
+import com.mengka.microservices.karaf.service.MengkaService;
+import com.mengka.microservices.karaf.values.MengkaReq;
+import com.mengka.springboot.karaf_01.CalculatorTest;
+import com.mengka.springboot.karaf_01.TestBase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -10,7 +12,6 @@ import org.ops4j.pax.exam.junit.PaxExam;
 import org.osgi.service.cm.ConfigurationAdmin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.inject.Inject;
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -22,9 +23,12 @@ import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
 import static org.ops4j.pax.exam.OptionUtils.combine;
 
-
+/**
+ * @author huangyy
+ * @date 2017/12/07.
+ */
 @RunWith(PaxExam.class)
-public class CalculatorTest extends TestBase {
+public class MengkaLimitServiceTest extends TestBase {
 
     private static final Logger LOG = LoggerFactory.getLogger(CalculatorTest.class);
 
@@ -37,22 +41,21 @@ public class CalculatorTest extends TestBase {
                 combine(
                         configBase(),
                         mavenBundle()
-                                .groupId("de.nierbeck.microservices.karaf")
-                                .artifactId("service-api")
+                                .groupId("com.mengka.microservices.karaf")
+                                .artifactId("mengka-services-api")
                                 .versionAsInProject(),
                         mavenBundle()
-                                .groupId("de.nierbeck.microservices.karaf")
-                                .artifactId("service-impl")
+                                .groupId("com.mengka.microservices.karaf")
+                                .artifactId("mengka-services-impl")
                                 .versionAsInProject()
                 )
         );
     }
 
-
     @Test
-    public void testCalculatorService() throws Exception {
+    public void testLimitService() throws Exception {
         LOG.info("starting test");
-        org.osgi.service.cm.Configuration configuration = configAdminService.createFactoryConfiguration("de.nierbeck.microservices.karaf.calculator");
+        org.osgi.service.cm.Configuration configuration = configAdminService.createFactoryConfiguration("com.mengka.microservices.karaf.service");
 
         Dictionary<String, Object> dictionary = configuration.getProperties();
         if (dictionary == null) {
@@ -66,29 +69,19 @@ public class CalculatorTest extends TestBase {
         configuration.setBundleLocation(null);
         configuration.update(dictionary);
 
-
         LOG.info("retrieving service");
-        CreditCalculator osgiService = getOsgiService(CreditCalculator.class);
+        MengkaService osgiService = getOsgiService(MengkaService.class);
 
         assertThat(osgiService, is(notNullValue()));
 
-        Credit creditValues = new Credit();
-        creditValues.setCredit(10000.0);
-        creditValues.setInterest(2.5);
-        creditValues.setRetention(2);
-        LOG.info("-----------, creditValues = " + creditValues.toString());
+        MengkaReq mengkaReq = new MengkaReq();
+        mengkaReq.setCreditAmount(50000.0);
+        mengkaReq.setApplyAmount(10000.0);
+        LOG.info("-----------, mengkaReq = " + mengkaReq.toString());
 
-        osgiService.calculateRate(creditValues);
+        osgiService.calculateRate(mengkaReq);
 
-        Double rate = creditValues.getRate();
-        LOG.info("----------, rate = " + rate);
-        assertThat(rate, is(notNullValue()));
-        assertThat(rate, is(5966.51));
-    }
-
-
-    @Test
-    public void testRequiredFeatures() throws Exception {
-        assertThat(featuresService.isInstalled(featuresService.getFeature("scr")), is(true));
+        Double amount = mengkaReq.getAmount();
+        LOG.info("----------, 信用额度 = " + amount);
     }
 }
