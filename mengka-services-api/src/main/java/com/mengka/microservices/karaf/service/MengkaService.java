@@ -1,6 +1,6 @@
 package com.mengka.microservices.karaf.service;
 
-import com.mengka.microservices.karaf.values.MengkaReq;
+import com.mengka.microservices.karaf.service.values.MengkaReq;
 
 /**
  * @author huangyy

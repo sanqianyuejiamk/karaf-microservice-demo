@@ -1,7 +1,7 @@
 package com.mengka.microservices.karaf.service.impl;
 
 import com.mengka.microservices.karaf.service.MengkaService;
-import com.mengka.microservices.karaf.values.MengkaReq;
+import com.mengka.microservices.karaf.service.values.MengkaReq;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.osgi.service.component.annotations.Activate;

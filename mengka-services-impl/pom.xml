@@ -4,7 +4,7 @@
     <groupId>com.mengka.microservices.karaf</groupId>
     <artifactId>mengka-services-impl</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>mengka-services-impl</name>
 
     <properties>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.mengka.microservices.karaf</groupId>
             <artifactId>mengka-services-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -81,7 +81,7 @@
                             !*
                         </Export-Package>
                         <Private-Package>
-                            ${project.groupId}.impl.calc,
+                            ${project.groupId}.service.impl,
                             org.apache.commons.lang3
                         </Private-Package>
                     </instructions>

@@ -4,7 +4,7 @@
     <groupId>com.mengka.microservices.karaf</groupId>
     <artifactId>mengka-services-api</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>mengka-services-api</name>
 
 
@@ -36,7 +36,7 @@
                             <goal>baseline</goal>
                         </goals>
                         <configuration>
-                            <!--<comparisonVersion>${comparison.version}</comparisonVersion>-->
+                            <comparisonVersion>${comparison.version}</comparisonVersion>
                             <failOnWarning>false</failOnWarning>
                         </configuration>
                     </execution>

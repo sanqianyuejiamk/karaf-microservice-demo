@@ -1,4 +1,4 @@
-package com.mengka.microservices.karaf.values;
+package com.mengka.microservices.karaf.service.values;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
