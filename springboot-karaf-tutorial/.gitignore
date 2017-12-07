@@ -2,6 +2,7 @@
 !.gitignore
 *.iml
 target
+${sys:logging.path}
 *.jar
 *.war
 *~

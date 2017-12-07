@@ -2,6 +2,7 @@ package com.mengka.springboot.karaf_01;
 
 import de.nierbeck.microservices.karaf.calculator.CreditCalculator;
 import de.nierbeck.microservices.karaf.calculator.values.Credit;
+import org.apache.karaf.features.Feature;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -89,6 +90,9 @@ public class CalculatorTest extends TestBase {
 
     @Test
     public void testRequiredFeatures() throws Exception {
+        Feature feature = featuresService.getFeature("scr");
+        LOG.info("Feature id = {}, name = {}, version = {}", feature.getId(), feature.getName(), feature.getVersion());
+
         assertThat(featuresService.isInstalled(featuresService.getFeature("scr")), is(true));
     }
 }

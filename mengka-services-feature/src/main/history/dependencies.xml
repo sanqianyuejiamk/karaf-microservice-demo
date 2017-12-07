@@ -3,7 +3,8 @@
     <feature>
         <feature>cxf-jaxrs</feature>
         <feature>scr</feature>
-        <bundle>mvn:com.mengka.microservices.karaf/mengka-services-api/1.0.0-SNAPSHOT</bundle>
-        <bundle>mvn:com.mengka.microservices.karaf/mengka-services-impl/1.0.0-SNAPSHOT</bundle>
+        <bundle>mvn:com.mengka.microservices.karaf/mengka-services-api/1.0.1-SNAPSHOT</bundle>
+        <bundle>mvn:com.mengka.microservices.karaf/mengka-services-impl/1.0.1-SNAPSHOT</bundle>
+        <bundle>mvn:com.mengka.microservices.karaf/mengka-services-shell-command/1.0.0-SNAPSHOT</bundle>
     </feature>
 </features>
