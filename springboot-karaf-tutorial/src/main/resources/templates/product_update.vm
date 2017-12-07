@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>service-billing</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/webjars/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</head>
+<body style="min-height: 2000px;padding-top: 70px;">
+
+    #parse("navbar.vm")
+
+<div class="container">
+    <form class="form-horizontal" role="form" action="/v1/product/update" method="post">
+        <div class="form-group">
+            <label for="productCode" class="col-sm-2 control-label">产品编号</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="productCode" name="productCode"
+                       value="${productDO.productCode}" placeholder="产品编号">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productName" class="col-sm-2 control-label">产品名称</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="productName" name="productName"
+                       value="${productDO.productName}" placeholder="产品名称">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="type" class="col-sm-2 control-label">事件号</label>
+            <div class="col-sm-10">
+                <select class="form-control" name="type" id="type">
+                    <option value="1" #if(${productDO.type} == 1) selected#end>反欺诈服务接口</option>
+                    <option value="2" #if(${productDO.type} == 2) selected#end>宝付三方认证服务接口</option>
+                    <option value="3" #if(${productDO.type} == 3) selected#end>短信服务接口</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventNos" class="col-sm-2 control-label">事件号</label>
+            <div class="col-sm-10">
+                <textarea name="eventNos" id="eventNos" class="form-control" rows="5">
+                    $!{productDO.eventNos}
+                </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="status" class="col-sm-2 control-label">状态</label>
+            <div class="col-sm-10">
+                <label class="radio-inline">
+                    <input type="radio" name="status" value="0"  #if(${productDO.status} == 0) checked#end>正常<br>
+                    <input type="radio" name="status" value="-1" #if(${productDO.status} == -1) checked#end>删除
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">保存</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<config>
+    <group name="dbconfig">
+        <property name="jdbc.ds1.driverClassName" defaultValue="James tang"/>
+        <property name="jdbc.ds1.url" defaultValue="James tang"/>
+        <property name="jdbc.ds1.username" defaultValue="James tang"/>
+        <property name="jdbc.ds1.password" defaultValue="James tang"/>
+        <property name="jdbc.ds1.initialSize" defaultValue="James tang"/>
+        <property name="jdbc.ds1.minIdle" defaultValue="James tang"/>
+        <property name="jdbc.ds1.maxIdle" defaultValue="James tang"/>
+        <property name="jdbc.ds1.maxActive" defaultValue="James tang"/>
+        <property name="jdbc.ds1.maxWait" defaultValue="James tang"/>
+        <property name="jdbc.ds1.testOnBorrow" defaultValue="James tang"/>
+        <property name="jdbc.ds1.testWhileIdle" defaultValue="James tang"/>
+        <property name="jdbc.ds1.timeBetweenEvictionRunsMillis" defaultValue="James tang"/>
+        <property name="jdbc.ds1.numTestsPerEvictionRun" defaultValue="James tang"/>
+        <property name="jdbc.ds1.minEvictableIdleTimeMillis" defaultValue="James tang"/>
+        <property name="jdbc.ds2.driverClassName" defaultValue="James tang"/>
+        <property name="jdbc.ds2.url" defaultValue="James tang"/>
+        <property name="jdbc.ds2.username" defaultValue="James tang"/>
+        <property name="jdbc.ds2.password" defaultValue="James tang"/>
+        <property name="jdbc.ds2.initialSize" defaultValue="James tang"/>
+        <property name="jdbc.ds2.minIdle" defaultValue="James tang"/>
+        <property name="jdbc.ds2.maxIdle" defaultValue="James tang"/>
+        <property name="jdbc.ds2.maxActive" defaultValue="James tang"/>
+        <property name="jdbc.ds2.maxWait" defaultValue="James tang"/>
+        <property name="jdbc.ds2.testOnBorrow" defaultValue="James tang"/>
+        <property name="jdbc.ds2.testWhileIdle" defaultValue="James tang"/>
+        <property name="jdbc.ds2.timeBetweenEvictionRunsMillis" defaultValue="James tang"/>
+        <property name="jdbc.ds2.numTestsPerEvictionRun" defaultValue="James tang"/>
+        <property name="jdbc.ds2.minEvictableIdleTimeMillis" defaultValue="James tang"/>
+    </group>
+    <group>
+        <property name="logging.file" defaultValue="kafka-monito"/>
+        <property name="logging.path" defaultValue=""/>
+        <property name="kafka.etl.zookeeperconnect" defaultValue=""/>
+        <property name="kafka.etl.topic" defaultValue=""/>
+        <property name="kafka.etl.consumegroupid" defaultValue=""/>
+    </group>
+    <script>
+        <generate template="application.properties.vm" destfile="/application.properties" charset="utf-8"/>
+        <generate template="datasource.properties.vm" destfile="/properties/datasource.properties" charset="utf-8"/>
+    </script>
+</config>

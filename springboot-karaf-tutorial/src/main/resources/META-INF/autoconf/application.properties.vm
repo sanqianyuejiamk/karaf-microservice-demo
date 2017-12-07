@@ -1,0 +1,6 @@
+logging.file=${logging.file}
+logging.path=${logging.path}
+
+kafka.etl.zookeeperconnect=${kafka.etl.zookeeperconnect}
+kafka.etl.topic=${kafka.etl.topic}
+kafka.etl.consumegroupid=${kafka.etl.consumegroupid}
