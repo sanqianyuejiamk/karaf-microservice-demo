@@ -1,7 +1,7 @@
 package com.mengka.springboot.karaf_02;
 
 import com.mengka.microservices.karaf.service.MengkaService;
-import com.mengka.microservices.karaf.values.MengkaReq;
+import com.mengka.microservices.karaf.service.values.MengkaReq;
 import com.mengka.springboot.karaf_01.CalculatorTest;
 import com.mengka.springboot.karaf_01.TestBase;
 import org.junit.Test;
@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 import java.util.Dictionary;
 import java.util.Hashtable;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -43,11 +42,11 @@ public class MengkaLimitServiceTest extends TestBase {
                         mavenBundle()
                                 .groupId("com.mengka.microservices.karaf")
                                 .artifactId("mengka-services-api")
-                                .versionAsInProject(),
+                                .version("1.0.1-SNAPSHOT"),
                         mavenBundle()
                                 .groupId("com.mengka.microservices.karaf")
                                 .artifactId("mengka-services-impl")
-                                .versionAsInProject()
+                                .version("1.0.1-SNAPSHOT")
                 )
         );
     }
